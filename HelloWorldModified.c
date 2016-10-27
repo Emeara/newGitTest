@@ -8,6 +8,8 @@ int sub(int x, int y);
 int mul(int x, int y);
 int divi(int x, int y);
 int expo(int x, int y);
+int selection(int *x, int *y, int op);
+int compare(int *x, int *y);
 
 int main()
 {
@@ -26,51 +28,10 @@ int main()
         printMenu();
         scanf("%d", &op);
         reqInput(x, y);
-        
-        if (op == 1)
-        {
-            printf("%d\n", add(*x, *y));
-        }
-
-        else if (op == 2)
-        {
-            printf("%d\n", sub(*x, *y));
-        }
-
-        else if (op == 3)
-        {
-            printf("%d\n", mul(*x, *y));
-        }
-
-        else if (op == 4)
-        {
-            printf("%d\n", divi(*x, *y));
-        }
-
-        else if (op == 5)
-        {
-            printf("%d\n", expo(*x, *y));
-        }
-        else
-        {
-            exit = 1;
-        }
-
+        exit = selection(x, y, op);
+        compare(x, y);
     }
 
-    if((*x + *y) > 0)
-    {
-        printf("%s%d%s\n", "The value ", (*x + *y), " is larger than 0.");
-    }
-    else if((*x + *y) == 0)
-    {
-        printf("%s%d%s\n", "The value ", (*x + *y), "is equal to 0.");
-    }
-    else
-    {
-        printf("%s%d%s\n", "The value ", (*x + *y), "is smaller than 0.");
-    }
-    
     free(x);
     free(y);
     return 0;
@@ -133,4 +94,49 @@ int expo(int x, int y)
         y--;
     }
     return sum;
+}
+
+int selection(int *x, int *y, int op)
+{
+    if (op == 1)
+    {
+        printf("%d\n", add(*x, *y));
+    }
+    else if (op == 2)
+    {
+        printf("%d\n", sub(*x, *y));
+    }
+    else if (op == 3)
+    {
+        printf("%d\n", mul(*x, *y));
+    }
+    else if (op == 4)
+    {
+        printf("%d\n", divi(*x, *y));
+    }
+    else if (op == 5)
+    {
+        printf("%d\n", expo(*x, *y));
+    }
+    else
+    {
+        return 1;
+    }
+}
+
+int compare(int *x, int *y)
+{
+    if((*x + *y) > 0)
+    {
+        printf("%s%d%s\n", "The value ", (*x + *y), " is larger than 0.");
+    }
+    else if((*x + *y) == 0)
+    {
+        printf("%s%d%s\n", "The value ", (*x + *y), "is equal to 0.");
+    }
+    else
+    {
+        printf("%s%d%s\n", "The value ", (*x + *y), "is smaller than 0.");
+    }
+    
 }
