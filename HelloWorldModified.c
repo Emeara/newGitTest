@@ -6,17 +6,21 @@ int main()
 
     printf("Hello World!\n");
     
-    printf("%s", "Enter first value:");
+    printf("%s", "Enter first value: ");
     scanf("%d", &x);
-    printf("%s", "Enter second value:");
+    printf("%s", "Enter second value: ");
     scanf("%d", &y);
 
     printf("%s%d\n", "Added Value: ", x + y);
     if((x + y) > 0)
     {
-        printf("%s%d%s\n", "The value ", (x + y), " is larger than 0");
+        printf("%s%d%s\n", "The value ", (x + y), " is larger than 0.");
+    }
+    else if((x + y) == 0)
+    {
+        printf("%s%d%s\n", "The value ", (x + y), "is equal to 0.");
     }
     else
-        printf("%s%d%s\n", "The value ", (x + y), "is smaller or equal to 0");
+        printf("%s%d%s\n", "The value ", (x + y), "is smaller than 0.");
     return 0;
 }
