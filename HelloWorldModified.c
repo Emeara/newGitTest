@@ -27,7 +27,6 @@ int main()
     {
         printMenu();
         scanf("%d", &op);
-        reqInput(x, y);
         exit = selection(x, y, op);
         compare(x, y);
     }
@@ -100,22 +99,27 @@ int selection(int *x, int *y, int op)
 {
     if (op == 1)
     {
+        reqInput(x, y);
         printf("%d\n", add(*x, *y));
     }
     else if (op == 2)
     {
+        reqInput(x, y);
         printf("%d\n", sub(*x, *y));
     }
     else if (op == 3)
     {
+        reqInput(x, y);
         printf("%d\n", mul(*x, *y));
     }
     else if (op == 4)
     {
+        reqInput(x, y);
         printf("%d\n", divi(*x, *y));
     }
     else if (op == 5)
     {
+        reqInput(x, y);
         printf("%d\n", expo(*x, *y));
     }
     else
