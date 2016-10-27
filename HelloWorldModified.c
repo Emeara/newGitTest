@@ -17,6 +17,6 @@ int main()
         printf("%s%d%s\n", "The value ", (x + y), " is larger than 0");
     }
     else
-        printf("%s%d%s\n", "The value ", (x + y), "is small or equal to 0");
+        printf("%s%d%s\n", "The value ", (x + y), "is smaller or equal to 0");
     return 0;
 }
