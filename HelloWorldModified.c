@@ -1,20 +1,23 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int reqInput(int *x, int *y);
 int printMenu();
 int add(int x, int y);
 int sub(int x, int y);
 int mul(int x, int y);
-int div(int x, int y);
+int divi(int x, int y);
 int expo(int x, int y);
 
 int main()
 {
-    int *x = 0;
-    int *y = 0;
+    int *x;
+    int *y;
     int exit = 0;
     int op = 0;
-    
+
+    x = malloc(sizeof(int));
+    y = malloc(sizeof(int));
 
     printf("Hello World!!\n");
     
@@ -23,6 +26,7 @@ int main()
         printMenu();
         scanf("%d", &op);
         reqInput(x, y);
+        
         if (op == 1)
         {
             printf("%d\n", add(*x, *y));
@@ -35,12 +39,12 @@ int main()
 
         else if (op == 3)
         {
-            printf("%d\n", div(*x, *y));
+            printf("%d\n", mul(*x, *y));
         }
 
         else if (op == 4)
         {
-            printf("%d\n", mul(*x, *y));
+            printf("%d\n", divi(*x, *y));
         }
 
         else if (op == 5)
@@ -67,11 +71,10 @@ int main()
         printf("%s%d%s\n", "The value ", (*x + *y), "is smaller than 0.");
     }
     
+    free(x);
+    free(y);
     return 0;
 }
-
-    
-
 
 int reqInput(int *x, int *y)
 {
@@ -114,7 +117,7 @@ int mul(int x, int y)
     return sum;
 }
 
-int div(int x, int y)
+int divi(int x, int y)
 {
     int sum = 0;
     sum = x / y;
