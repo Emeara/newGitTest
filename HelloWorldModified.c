@@ -8,6 +8,7 @@ int sub(int x, int y);
 int mul(int x, int y);
 int divi(int x, int y);
 int expo(int x, int y);
+int compare(int x, int y);
 
 int main()
 {
@@ -18,38 +19,46 @@ int main()
 
     x = malloc(sizeof(int));
     y = malloc(sizeof(int));
-
+ 
     printf("Hello World!!\n");
-    
     while(exit == 0)
     {
         printMenu();
         scanf("%d", &op);
-        reqInput(x, y);
         
         if (op == 1)
         {
+            reqInput(x, y);
             printf("%d\n", add(*x, *y));
+            compare(*x, *y);
         }
 
         else if (op == 2)
         {
+            reqInput(x, y);
             printf("%d\n", sub(*x, *y));
+            compare(*x, *y);
         }
 
         else if (op == 3)
         {
+            reqInput(x, y);
             printf("%d\n", mul(*x, *y));
+            compare(*x, *y);
         }
 
         else if (op == 4)
         {
+            reqInput(x, y);
             printf("%d\n", divi(*x, *y));
+            compare(*x, *y);
         }
 
         else if (op == 5)
         {
+            reqInput(x, y);
             printf("%d\n", expo(*x, *y));
+            compare(*x, *y);
         }
         else
         {
@@ -57,22 +66,7 @@ int main()
         }
 
     }
-
-    if((*x + *y) > 0)
-    {
-        printf("%s%d%s\n", "The value ", (*x + *y), " is larger than 0.");
-    }
-    else if((*x + *y) == 0)
-    {
-        printf("%s%d%s\n", "The value ", (*x + *y), "is equal to 0.");
-    }
-    else
-    {
-        printf("%s%d%s\n", "The value ", (*x + *y), "is smaller than 0.");
-    }
-    
-    free(x);
-    free(y);
+  
     return 0;
 }
 
@@ -94,6 +88,22 @@ int printMenu()
     printf("%s\n", "5. Exponential");
     printf("%s", "Selection: ");
     return 1;
+}
+
+int compare(int x, int y)
+{
+    if((x + y) > 0)
+    {
+        printf("%s%d%s\n", "The value ", (x + y), " is larger than 0.");
+    }
+    else if((x + y) == 0)
+    {
+        printf("%s%d%s\n", "The value ", (x + y), " is equal to 0.");
+    }
+    else
+    {
+        printf("%s%d%s\n", "The value ", (x + y), " is smaller than 0.");
+    }
 }
 
 int add(int x, int y)
