@@ -4,7 +4,7 @@ int main()
     int x = 0;
     int y = 0;
 
-    printf("Hello World!\n");
+    printf("Hello World!!\n");
     
     printf("%s", "Enter first value: ");
     scanf("%d", &x);
