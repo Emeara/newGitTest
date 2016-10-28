@@ -28,6 +28,10 @@ int main()
         printMenu();
         scanf("%d", &op);
         exit = selection(x, y, op);
+        if(exit == 2)
+        {
+            break;
+        }
         compare(x, y);
     }
 
@@ -100,7 +104,7 @@ int divi(int x, int y)
     if (y == 0)
     {
         printf("%s\n", "ERROR: DIV BY ZERO");
-        return 1;
+        return 2;
     }
     else
     {
@@ -147,7 +151,17 @@ int selection(int *x, int *y, int op)
     else if (op == 4)
     {
         reqInput(x, y);
-        printf("%d\n", divi(*x, *y));
+        
+        if (divi(*x, *y) == 2)
+        {
+            /*returns 2 to exit value to indicate an error*/
+            return 2;
+        }
+        else
+        {
+            printf("%d\n", divi(*x, *y));
+        }
+
     }
     else if (op == 5)
     {
