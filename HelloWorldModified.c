@@ -28,6 +28,10 @@ int main()
         printMenu();
         scanf("%d", &op);
         exit = selection(x, y, op);
+        if(exit == 2)
+        {
+            break;
+        }
         compare(x, y);
     }
 
@@ -97,8 +101,16 @@ int mul(int x, int y)
 int divi(int x, int y)
 {
     int sum = 0;
-    sum = x / y;
-    return sum;
+    if (y == 0)
+    {
+        printf("%s\n", "ERROR: DIV BY ZERO");
+        return 2;
+    }
+    else
+    {
+        sum = x / y;
+        return sum;
+    }
 }
 
 int expo(int x, int y)
@@ -139,7 +151,17 @@ int selection(int *x, int *y, int op)
     else if (op == 4)
     {
         reqInput(x, y);
-        printf("%d\n", divi(*x, *y));
+        
+        if (divi(*x, *y) == 2)
+        {
+            /*returns 2 to exit value to indicate an error*/
+            return 2;
+        }
+        else
+        {
+            printf("%d\n", divi(*x, *y));
+        }
+
     }
     else if (op == 5)
     {
