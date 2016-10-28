@@ -8,6 +8,7 @@ int sub(int x, int y);
 int mul(int x, int y);
 int divi(int x, int y);
 int expo(int x, int y);
+int mod(int x, int y);
 int selection(int *x, int *y, int op);
 int compare(int *x, int *y);
 
@@ -51,23 +52,24 @@ int printMenu()
     printf("%s\n", "3. Multiply");
     printf("%s\n", "4. Divide");
     printf("%s\n", "5. Exponential");
+    printf("%s\n", "6. Modulus");
     printf("%s", "Selection: ");
     return 1;
 }
 
-int compare(int x, int y)
+int compare(int *x, int *y)
 {
-    if((x + y) > 0)
+    if((*x + *y) > 0)
     {
-        printf("%s%d%s\n", "The value ", (x + y), " is larger than 0.");
+        printf("%s%d%s\n", "The value ", (*x + *y), " is larger than 0.");
     }
-    else if((x + y) == 0)
+    else if((*x + *y) == 0)
     {
-        printf("%s%d%s\n", "The value ", (x + y), " is equal to 0.");
+        printf("%s%d%s\n", "The value ", (*x + *y), " is equal to 0.");
     }
     else
     {
-        printf("%s%d%s\n", "The value ", (x + y), " is smaller than 0.");
+        printf("%s%d%s\n", "The value ", (*x + *y), " is smaller than 0.");
     }
 }
 
@@ -104,9 +106,16 @@ int expo(int x, int y)
     int sum = 1;
     while(y != 0)
     {
-        sum=sum*x;
+        sum = sum * x;
         y--;
     }
+    return sum;
+}
+
+int mod(int x, int y)
+{
+    int sum = 0;
+    sum = x % y;
     return sum;
 }
 
@@ -137,25 +146,13 @@ int selection(int *x, int *y, int op)
         reqInput(x, y);
         printf("%d\n", expo(*x, *y));
     }
+    else if (op == 6)
+    {
+        reqInput(x, y);
+        printf("%d\n", mod(*x, *y));
+    }
     else
     {
         return 1;
     }
-}
-
-int compare(int *x, int *y)
-{
-    if((*x + *y) > 0)
-    {
-        printf("%s%d%s\n", "The value ", (*x + *y), " is larger than 0.");
-    }
-    else if((*x + *y) == 0)
-    {
-        printf("%s%d%s\n", "The value ", (*x + *y), "is equal to 0.");
-    }
-    else
-    {
-        printf("%s%d%s\n", "The value ", (*x + *y), "is smaller than 0.");
-    }
-    
 }
