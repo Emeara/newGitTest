@@ -57,19 +57,19 @@ int printMenu()
     return 1;
 }
 
-int compare(int x, int y)
+int compare(int *x, int *y)
 {
-    if((x + y) > 0)
+    if((*x + *y) > 0)
     {
-        printf("%s%d%s\n", "The value ", (x + y), " is larger than 0.");
+        printf("%s%d%s\n", "The value ", (*x + *y), " is larger than 0.");
     }
-    else if((x + y) == 0)
+    else if((*x + *y) == 0)
     {
-        printf("%s%d%s\n", "The value ", (x + y), " is equal to 0.");
+        printf("%s%d%s\n", "The value ", (*x + *y), " is equal to 0.");
     }
     else
     {
-        printf("%s%d%s\n", "The value ", (x + y), " is smaller than 0.");
+        printf("%s%d%s\n", "The value ", (*x + *y), " is smaller than 0.");
     }
 }
 
@@ -155,21 +155,4 @@ int selection(int *x, int *y, int op)
     {
         return 1;
     }
-}
-
-int compare(int *x, int *y)
-{
-    if((*x + *y) > 0)
-    {
-        printf("%s%d%s\n", "The value ", (*x + *y), " is larger than 0.");
-    }
-    else if((*x + *y) == 0)
-    {
-        printf("%s%d%s\n", "The value ", (*x + *y), "is equal to 0.");
-    }
-    else
-    {
-        printf("%s%d%s\n", "The value ", (*x + *y), "is smaller than 0.");
-    }
-    
 }
