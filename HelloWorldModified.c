@@ -97,8 +97,16 @@ int mul(int x, int y)
 int divi(int x, int y)
 {
     int sum = 0;
-    sum = x / y;
-    return sum;
+    if (y == 0)
+    {
+        printf("%s\n", "ERROR: DIV BY ZERO");
+        return 1;
+    }
+    else
+    {
+        sum = x / y;
+        return sum;
+    }
 }
 
 int expo(int x, int y)
