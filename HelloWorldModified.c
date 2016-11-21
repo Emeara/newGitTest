@@ -101,16 +101,8 @@ int mul(int x, int y)
 int divi(int x, int y)
 {
     int sum = 0;
-    if (y == 0)
-    {
-        printf("%s\n", "ERROR: DIV BY ZERO");
-        return 2;
-    }
-    else
-    {
-        sum = x / y;
-        return sum;
-    }
+    sum = x / y;
+    return sum;
 }
 
 int expo(int x, int y)
@@ -156,8 +148,9 @@ int selection(int *x, int *y, int op)
     {
         reqInput(x, y);
         
-        if (divi(*x, *y) == 2)
+        if (*y == 0)
         {
+            printf("%s\n", "ERROR: DIV BY ZERO");
             /*returns 2 to exit value to indicate an error*/
             return 2;
         }
