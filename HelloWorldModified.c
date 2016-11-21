@@ -32,7 +32,6 @@ int main()
         {
             break;
         }
-        compare(x, y);
     }
 
     free(x);
@@ -75,6 +74,7 @@ int compare(int *x, int *y)
     {
         printf("%s%d%s\n", "The value ", (*x + *y), " is smaller than 0.");
     }
+    return 1;
 }
 
 int add(int x, int y)
@@ -137,16 +137,20 @@ int selection(int *x, int *y, int op)
     {
         reqInput(x, y);
         printf("%d\n", add(*x, *y));
+        compare(x, y);
+        return 1;
     }
     else if (op == 2)
     {
         reqInput(x, y);
         printf("%d\n", sub(*x, *y));
+        return 1;
     }
     else if (op == 3)
     {
         reqInput(x, y);
         printf("%d\n", mul(*x, *y));
+        return 1;
     }
     else if (op == 4)
     {
@@ -160,6 +164,7 @@ int selection(int *x, int *y, int op)
         else
         {
             printf("%d\n", divi(*x, *y));
+            return 1;
         }
 
     }
@@ -167,11 +172,13 @@ int selection(int *x, int *y, int op)
     {
         reqInput(x, y);
         printf("%d\n", expo(*x, *y));
+        return 1;
     }
     else if (op == 6)
     {
         reqInput(x, y);
         printf("%d\n", mod(*x, *y));
+        return 1;
     }
     else
     {
