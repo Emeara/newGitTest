@@ -56,6 +56,7 @@ int printMenu()
     printf("%s\n", "4. Divide");
     printf("%s\n", "5. Exponential");
     printf("%s\n", "6. Modulus");
+    printf("%s\n", "7. Div w/ R");
     printf("%s", "Selection: ");
     return 1;
 }
@@ -157,9 +158,8 @@ int selection(int *x, int *y, int op)
         else
         {
             printf("%d\n", divi(*x, *y));
-            return 1;
         }
-
+        return 1;
     }
     else if (op == 5)
     {
@@ -173,8 +173,24 @@ int selection(int *x, int *y, int op)
         printf("%d\n", mod(*x, *y));
         return 1;
     }
+    else if (op == 7)
+    {
+        reqInput(x, y);
+
+        if(*y == 0)
+        {
+            printf("%s\n", "ERROR: DIV BY ZERO");
+            /*returns 2 to exit value to indicate an error*/
+            return 2;
+        }
+        else
+        {
+            printf("%d:%d\n", divi(*x, *y), mod(*x, *y));
+        }
+        return 1;
+    }
     else
     {
-        return 1;
+        return 0;
     }
 }
